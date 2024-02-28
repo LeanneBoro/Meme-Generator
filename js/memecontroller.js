@@ -7,28 +7,28 @@ function onInit() {
     console.log('yas yas yas')
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    window.addEventListener('resize', () => resizeCanvas())
+
     renderMeme()
+    drawText('Hello', 232, 52)
+
 }
 
 function renderMeme() {
-    const elImg = new Image()
-    const str = 'enter text'
-    elImg.src = 'img/15.jpg'
-    elImg.onload = () =>
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-}
-
-function show(eve) {
-    console.log(eve.offsetX)
-    console.log(eve.offsetY)
+    let meme = getMeme()
+    let line = meme.lines
+    var img = new Image()
+    img.src = `img/${meme.selectedImgId}.jpg`
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0)
+        drawText(line[0].txt, 200, 60)
+    }
 }
 
 function drawText(text, x, y) {
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'white'
+    gCtx.strokeStyle = 'black'
 
-    gCtx.fillStyle = 'lightsteelblue'
+    gCtx.fillStyle = 'white'
 
     gCtx.font = '45px Arial'
     gCtx.textAlign = 'center'
@@ -37,3 +37,4 @@ function drawText(text, x, y) {
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
+
