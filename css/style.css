@@ -1,14 +1,8 @@
 
-.editor {
-    position: absolute;
-    width: 100vh;
-}
+@import url("basics/helpers.css");
+@import url("basics/base.css");
+@import url("basics/layoutgallery.css");
 
-.gallery {
-    position: absolute;
-}
-
-.hidden {
-    display: none;
-    z-index: -1;
+* {
+    box-sizing: border-box;
 }

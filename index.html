@@ -19,9 +19,13 @@
             <input oninput="onEnterText(this)" type="text" id="text" name="text" placeholder="enter text here">
       <a href="#" onclick="downloadImg(this)" download="file-name">Download</a>
       <div class="canvas-container">
-     <canvas width="450" height="450"></canvas>   
+     <canvas width="450" height="450" onmousemove="onMouseMove(event)"></canvas>   
     </div>
     <input oninput="onSetColor(this)" type="color" id="color" name="color">
+    <button onclick="onIncreaseFont()">increase</button>
+    <button onclick="onDecreaseFont()">decrease</button>
+    <button onclick="onAddLine()">add line</button>
+    <button onclick="onSwitchLine()">switch line</button>
     </section>
     <script src="js/memeservice.js"></script>
     <script src="js/gallerycontroller.js"></script>
