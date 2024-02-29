@@ -1,0 +1,12 @@
+
+.editor {
+    position: absolute;
+    background-color: green;
+    z-index: 1;
+}
+
+.gallery {
+    position: absolute;
+    background-color: blueviolet;
+    z-index: 2;
+}
