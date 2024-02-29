@@ -7,19 +7,16 @@ function onInit() {
     renderImages()
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    // renderMeme()
-
 }
 
 function renderMeme() {
     let meme = getMeme()
     let line = meme.lines
-    let lineIdx = meme.selectedLineIdx
     var img = new Image()
     img.src = `img/${meme.selectedImgId}.jpg`
     img.onload = () => {
         gCtx.drawImage(img, 0, 0)
-        drawText(line[lineIdx],200, 30)
+        drawText(line[meme.selectedLineIdx], 200, 30)
     }
 }
 
@@ -37,4 +34,20 @@ function drawText(line, x, y) {
 function onEnterText({ value }) {
     setLineTxt(value)
     renderMeme()
+}
+
+
+function onImgSelect({id}) {
+    setImg(id)
+    showEditor()
+    renderMeme()
+}
+
+
+function showEditor(){
+    let editor = document.querySelector('.editor')
+    let gallery = document.querySelector('.gallery')
+
+    editor.style.zIndex = 3
+    gallery.style.zIndex = -1
 }

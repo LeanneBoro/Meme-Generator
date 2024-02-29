@@ -14,3 +14,8 @@ function getMeme() {
 function setLineTxt(str) {
     gMeme.lines[gMeme.selectedLineIdx].txt = str
 }
+
+
+function setImg(id) {
+    gMeme.selectedImgId = id
+}

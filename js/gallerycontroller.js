@@ -7,7 +7,7 @@ var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
 function renderImages() {
     const strHTMLs = gImgs.map(img => {
         return `
-                <img src="${img.url}" />`
+                <img id="${img.id}" onclick="onImgSelect(this)" src="${img.url}" />`
     })
 
     let elGallery = document.querySelector('.gallery')
