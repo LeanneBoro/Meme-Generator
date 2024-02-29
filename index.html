@@ -15,10 +15,13 @@
     
   
     <section class="editor">
+        <div>
+            <input oninput="onEnterText(this)" type="text" id="text" placeholder="enter text here">
+        </div>
       <button>Share</button>
       <button>Download</button>
       <div class="canvas-container">
-     <canvas width="450" height="450" onclick="check(event)"></canvas>   
+     <canvas width="450" height="450"></canvas>   
     </div>
     </section>
     <script src="js/memeservice.js"></script>
