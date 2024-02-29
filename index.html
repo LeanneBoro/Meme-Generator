@@ -15,15 +15,13 @@
     </header>
     <section class="gallery"></section>
   
-    <section class="editor">
-        <div>
+    <section class="editor hidden">
             <input oninput="onEnterText(this)" type="text" id="text" name="text" placeholder="enter text here">
-        </div>
-      <button>Share</button>
-      <button>Download</button>
+      <a href="#" onclick="downloadImg(this)" download="file-name">Download</a>
       <div class="canvas-container">
      <canvas width="450" height="450"></canvas>   
     </div>
+    <input oninput="onSetColor(this)" type="color" id="color" name="color">
     </section>
     <script src="js/memeservice.js"></script>
     <script src="js/gallerycontroller.js"></script>

@@ -19,3 +19,7 @@ function setLineTxt(str) {
 function setImg(id) {
     gMeme.selectedImgId = id
 }
+
+function setColor(newColor) {
+    gMeme.lines[gMeme.selectedLineIdx].color = newColor
+}

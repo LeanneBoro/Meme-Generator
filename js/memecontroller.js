@@ -37,17 +37,29 @@ function onEnterText({ value }) {
 }
 
 
-function onImgSelect({id}) {
+function onImgSelect({ id }) {
     setImg(id)
     showEditor()
     renderMeme()
 }
 
 
-function showEditor(){
-    let editor = document.querySelector('.editor')
-    let gallery = document.querySelector('.gallery')
+function showEditor() {
+    let elEditor = document.querySelector('.editor')
+    let elGallery = document.querySelector('.gallery')
 
-    editor.style.zIndex = 3
-    gallery.style.zIndex = -1
+    elEditor.classList.remove('hidden')
+    elGallery.classList.add('hidden')
+
+}
+
+function downloadImg(elLink) {
+    elLink.download = 'my-img'
+    const dataUrl = gElCanvas.toDataURL()
+    elLink.href = dataUrl
+}
+
+function onSetColor({ value }) {
+    setColor(value)
+    renderMeme()
 }
