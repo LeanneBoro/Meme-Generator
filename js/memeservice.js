@@ -7,7 +7,7 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines:
-        [{ txt: 'haha', size: 20, color: 'red' }]
+        [{ txt: 'haha', size: 45, color: 'white' }]
 }
 
 function getMeme() {

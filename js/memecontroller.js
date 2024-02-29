@@ -19,19 +19,19 @@ function renderMeme() {
     img.src = `img/${meme.selectedImgId}.jpg`
     img.onload = () => {
         gCtx.drawImage(img, 0, 0)
-        drawText(line[lineIdx].txt,200, 30)
+        drawText(line[lineIdx],200, 30)
     }
 }
 
-function drawText(text, x, y) {
+function drawText(line, x, y) {
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = 'white'
-    gCtx.font = '45px Arial'
+    gCtx.strokeStyle = line.color
+    gCtx.fillStyle = line.color
+    gCtx.font = line.size + 'px Arial'
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+    gCtx.fillText(line.txt, x, y)
+    gCtx.strokeText(line.txt, x, y)
 }
 
 function onEnterText({ value }) {
