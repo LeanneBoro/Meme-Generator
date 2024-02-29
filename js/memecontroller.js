@@ -4,10 +4,10 @@ let gElCanvas
 let gCtx
 
 function onInit() {
+    renderImages()
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-
-    renderMeme()
+    // renderMeme()
 
 }
 
