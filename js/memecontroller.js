@@ -102,3 +102,7 @@ function onMouseMove(ev) {
     // })
 
 }
+
+function onDeleteLine(){
+    console.log('welp')
+}

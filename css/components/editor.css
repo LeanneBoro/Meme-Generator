@@ -1,0 +1,11 @@
+.icon {
+    width: 63px;
+    height: 63px;
+    background-color: white;
+    border-radius: 10%;
+}
+
+.icon img {
+    width: 100%;
+}
+

@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Meme Generator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Meme Generator</title>
 </head>
+
 <body onload="onInit()">
-    <header>
-      <h1>Meme</h1> 
-      <button>Gallery</button>
-      <button>Memes</button>
-      <button>About</button>
-    </header>
-    <section class="gallery"></section>
-  
-    <section class="editor hidden">
-            <input oninput="onEnterText(this)" type="text" id="text" name="text" placeholder="enter text here">
-      <a href="#" onclick="downloadImg(this)" download="file-name">Download</a>
-      <div class="canvas-container">
-     <canvas width="450" height="450" onmousemove="onMouseMove(event)"></canvas>   
+  <header class="flex space-between align-center">
+    <h1 class="logo">Meme</h1>
+    <div class="btn-container">
+      <a>Gallery</button>
+        <a>About</button>
     </div>
-    <input oninput="onSetColor(this)" type="color" id="color" name="color">
-    <button onclick="onIncreaseFont()">increase</button>
-    <button onclick="onDecreaseFont()">decrease</button>
-    <button onclick="onAddLine()">add line</button>
-    <button onclick="onSwitchLine()">switch line</button>
-    </section>
-    <script src="js/memeservice.js"></script>
-    <script src="js/gallerycontroller.js"></script>
-    <script src="js/memecontroller.js"></script>
+  </header>
+  <section class="gallery">
+    <div class="img-container"></div>
+  </section>
+
+  <section class="editor hidden grid flow-column">
+
+    <a href="#" onclick="downloadImg(this)" download="file-name">Download</a>
+    <div class="canvas-container">
+      <canvas width="450" height="450" onmousemove="onMouseMove(event)"></canvas>
+    </div>
+    <div class="icon-container flex">
+      <input oninput="onEnterText(this)" type="text" id="text" name="text" placeholder="enter text here">
+      <div class="icon" onclick="onSwitchLine()"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></div> 
+      <div class="icon" onclick="onAddLine()"><img src="ICONS/add.png"></div>
+      <div class="icon" onclick="onDeleteLine()"><img src="ICONS/trash.png"></div>
+     
+       <div class="icon" onclick="onIncreaseFont()"><img src="ICONS/increase font - icon.png"></div>
+      <div class="icon" onclick="onDecreaseFont()"><img src="ICONS/decrease font - icon.png"></div>
+      <input oninput=" onSetColor(this)" type="color" id="color" name="color">
+      
+      
+    </div>
+  </section>
+  <script src="js/memeservice.js"></script>
+  <script src="js/gallerycontroller.js"></script>
+  <script src="js/memecontroller.js"></script>
 </body>
+
 </html>
