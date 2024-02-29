@@ -26,20 +26,15 @@ function renderMeme() {
 function drawText(text, x, y) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
-
     gCtx.fillStyle = 'white'
-
     gCtx.font = '45px Arial'
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
-
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
 
 function onEnterText({ value }) {
-    let meme = getMeme()
-    let lineIdx = meme.selectedLineIdx
-    meme.lines[lineIdx].txt = value
+    setLineTxt(value)
     renderMeme()
 }
