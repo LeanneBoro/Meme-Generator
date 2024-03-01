@@ -29,6 +29,7 @@
 .logo {
     margin-left: 50px;
     font-size: 1.571428em;
+    font-weight: bold;
 }
 
 .main-header .main-nav a:hover {

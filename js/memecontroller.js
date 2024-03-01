@@ -18,7 +18,7 @@ function renderMeme() {
     var img = new Image()
     img.src = `img/${meme.selectedImgId}.jpg`
     img.onload = () => {
-        gCtx.drawImage(img, 0, 0)
+        gCtx.drawImage(img, 0, 0,gElCanvas.width, gElCanvas.height)
         drawText(meme.lines)
         // addRect(line)
     }

@@ -1,7 +1,24 @@
 .about {
     background-color: white;
-    height: 570px;
     justify-content: center;
+    align-content: center;
+    height:560px;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.about h2 {
     margin: 0;
-    padding: 0;
+    font-size: 1.78571em;
+    font-weight: bold;
+}
+
+.about p{
+    font-size: 1.4285714em;
+}
+
+.about img {
+    width: 350px;
+    border-radius: 50%;
+    grid-column: 1;
 }

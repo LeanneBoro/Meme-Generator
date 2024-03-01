@@ -2,9 +2,11 @@
 .editor {
     background-color: blue;
     margin-left: 50px;
-    margin-right: 130px;
+    margin-right: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
+    grid-auto-columns: 1fr 1fr;
+    gap: 100px;
 }
 
 .icon {
@@ -15,10 +17,17 @@
 }
 
 .icon img {
-    width: 100%;
+    width: 80%;
+    align-self: center;
+    justify-self: center;
 }
 
 #canvas {
+    border: solid black 5px;
     width: 100%;
 }
 
+#text {
+    border-radius: 10%;
+    font-size: 1.42857em;
+}
