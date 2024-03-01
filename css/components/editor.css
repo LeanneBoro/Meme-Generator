@@ -1,3 +1,12 @@
+
+.editor {
+    background-color: blue;
+    margin-left: 50px;
+    margin-right: 130px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .icon {
     width: 63px;
     height: 63px;
@@ -6,6 +15,10 @@
 }
 
 .icon img {
+    width: 100%;
+}
+
+#canvas {
     width: 100%;
 }
 

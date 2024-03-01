@@ -8,37 +8,58 @@
   <title>Ultimate Meme Generator</title>
 </head>
 
-<body onload="onInit()">
-  <header class="flex space-between align-center">
-    <h1 class="logo">Meme</h1>
-    <div class="btn-container">
-      <a>Gallery</button>
-        <a>About</button>
-    </div>
+<body onload="onInit()"">
+  <header class=" main-header flex  align-center space-between">
+  <div class="logo">Memegen</div>
+  <nav class="main-nav">
+    <ul class="main-nav-list flex clean-list">
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</nav>
   </header>
+
   <section class="gallery">
+    <nav class="search-bar flex align-center">
+      <input type="text" id="filter" name="filter" placeholder="Enter search keyword">
+    </nav>
     <div class="img-container"></div>
+    <div class="about flex align-center">
+      <h2>Leanne Borowitz</h1>
+      <p>Leanne is apparently a very bored person if she has time to write this instead of doing actual work. lol</p>
+      <!-- <img src="img/me again.png"> -->
+    </div>
   </section>
 
-  <section class="editor hidden grid flow-column">
 
-    <a href="#" onclick="downloadImg(this)" download="file-name">Download</a>
+
+
+
+
+  <section class="editor grid flow-column hidden">
     <div class="canvas-container">
-      <canvas width="450" height="450" onmousemove="onMouseMove(event)"></canvas>
+      <canvas id="canvas" width="550" height="550" onmousemove="onMouseMove(event)"></canvas>
     </div>
     <div class="icon-container flex">
+      <!-- <a href="#" onclick="downloadImg(this)" download="file-name">Download</a> -->
       <input oninput="onEnterText(this)" type="text" id="text" name="text" placeholder="enter text here">
-      <div class="icon" onclick="onSwitchLine()"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></div> 
+      <div class="icon" onclick="onSwitchLine()"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png"
+          alt=""></div>
       <div class="icon" onclick="onAddLine()"><img src="ICONS/add.png"></div>
       <div class="icon" onclick="onDeleteLine()"><img src="ICONS/trash.png"></div>
-     
-       <div class="icon" onclick="onIncreaseFont()"><img src="ICONS/increase font - icon.png"></div>
+
+      <div class="icon" onclick="onIncreaseFont()"><img src="ICONS/increase font - icon.png"></div>
       <div class="icon" onclick="onDecreaseFont()"><img src="ICONS/decrease font - icon.png"></div>
       <input oninput=" onSetColor(this)" type="color" id="color" name="color">
-      
-      
     </div>
   </section>
+
+
+  <footer class="grid align-center ">
+    <div class="logo">Memegen</div>
+    <small>all rights reserved 2019</small>
+  </footer>
+
   <script src="js/memeservice.js"></script>
   <script src="js/gallerycontroller.js"></script>
   <script src="js/memecontroller.js"></script>

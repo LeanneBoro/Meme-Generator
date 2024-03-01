@@ -1,16 +1,37 @@
 
-
-header {
+.main-header {
     background-color: #FF7F00;
     height: 69px;
+    position: sticky;
+    font-size: 1.357142em;
+    color: white;
 }
+
+.main-header h1 {
+    margin: 0;
+}
+
+.main-header .main-nav-list a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .main-header .main-nav a { 
+    margin-right: 50px;
+    min-width: 130px;
+    transition: box-shadow 0.2s;
+}
+
+/* .main-header .main-nav li:first-child {
+    border-inline-end: 2px solid black;
+} */
 
 .logo {
-    margin-inline-start: 50px;
+    margin-left: 50px;
+    font-size: 1.571428em;
 }
 
-.btn-container {
-    font-size: 1.1875em;
+.main-header .main-nav a:hover {
+    box-shadow: inset 0px -6px 0 black;
 }
 
-   

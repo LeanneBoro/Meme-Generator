@@ -1,0 +1,11 @@
+footer {
+    background-color: #FF7F00;
+    height: 200px;
+    justify-content: center;
+    color: white;
+}
+
+footer .logo {
+    font-size: 1.571428em;
+    place-self: center;
+}

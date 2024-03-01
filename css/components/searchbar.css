@@ -1,0 +1,14 @@
+
+
+.search-bar {
+    background-color: white;
+    height: 100px;
+}
+
+#filter {
+    margin-left: 50px;
+    width: 260px;
+    border: none;
+    font-size: 1.357142em;
+    border-bottom: solid 2px black;
+}

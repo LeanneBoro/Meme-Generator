@@ -5,10 +5,10 @@ let gCtx
 let gRectangles
 
 
-function onInit() {
+function onInit() { 
     renderImages()
     gElCanvas = document.querySelector('canvas')
-    gCtx = gElCanvas.getContext('2d')
+    gCtx = gElCanvas.getContext('2d') 
 }
 
 function renderMeme() {
@@ -23,6 +23,7 @@ function renderMeme() {
         // addRect(line)
     }
 }
+
 
 function drawLine(line, x, y) {
     gCtx.lineWidth = 2

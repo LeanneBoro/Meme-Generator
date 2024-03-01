@@ -6,6 +6,9 @@ var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
 { id: 4, url: 'img/4.jpg', keywords: ['cute', 'dog'] },
 { id: 5, url: 'img/5.jpg', keywords: ['cute', 'dog'] },
 { id: 6, url: 'img/6.jpg', keywords: ['cute', 'dog'] },
+{ id: 7, url: 'img/7.jpg', keywords: ['cute', 'dog'] },
+{ id: 8, url: 'img/8.jpg', keywords: ['cute', 'dog'] },
+{ id: 9, url: 'img/9.jpg', keywords: ['cute', 'dog'] },
 ]
 
 
@@ -17,5 +20,4 @@ function renderImages() {
 
     let elGallery = document.querySelector('.img-container')
     elGallery.innerHTML = strHTMLs.join('')
-
 }
