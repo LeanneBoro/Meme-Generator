@@ -1,5 +1,7 @@
 'use strict'
 
+var gFilterBy = ''
+
 var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
 { id: 2, url: 'img/2.jpg', keywords: ['cute', 'dog','man'] },
 { id: 3, url: 'img/3.jpg', keywords: ['cute', 'baby'] },
@@ -12,8 +14,12 @@ var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
 ]
 
 
+
+
+
 function renderImages() {
-    const strHTMLs = gImgs.map(img => {
+    let imgs = getImages()
+    const strHTMLs = imgs.map(img => {
         return `
                 <img id="${img.id}" onclick="onImgSelect(this)" src="${img.url}" />`
     })
@@ -26,15 +32,21 @@ function getRandomImg() {
     return getRandomInt(1, gImgs.length)
 }
 
-function setFilterBy() {
-    
+function setFilterBy(filter) {
+    gFilterBy = filter 
+    renderImages()
 }
 
-// function getImages() {
-//  if (!gFilterBy) return gImgs
+function getImages() {
+ if (!gFilterBy) return gImgs
 
-// var imgs = gImgs.filter((img) =>
-//     img.title.toLowerCase().includes(gFilterBy.toLowerCase())
-// )
-// return books   
-// }
+ let imgs = gImgs.filter(img => {
+    for (let keyword of img.keywords) {
+      if (keyword.includes(gFilterBy)) {
+        return true
+      }
+    }
+    return false
+  })
+  return imgs
+}

@@ -215,3 +215,7 @@ function renderRandomMeme() {
     showEditor()
 }
 
+function onSetFilterBy({ value }) {
+    setFilterBy(value)
+    console.log(value)
+}
