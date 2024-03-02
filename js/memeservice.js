@@ -1,10 +1,11 @@
 'use strict'
 
+
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines:
-        [{ txt: 'your text here', size: 45, color: 'white', x : 225 ,y: 40}]
+        [{ txt: 'your text here', size: 45, color: 'white', x: 275, y: 40 }]
 }
 
 function getMeme() {
@@ -26,9 +27,14 @@ function increaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size++
 }
 function addLine() {
-    let newLine = { txt: 'enter text', size: 45, color: 'white',x : 225, y : 420 }
+    let canvasWidth = getCanvasWidth()
+    if (gMeme.lines.length === 1) {
+        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth - 40 }
+    }
+    else {
+        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth / 2 }
+    }
     gMeme.lines.push(newLine)
-    return newLine
 }
 
 function switchLines() {
@@ -36,3 +42,15 @@ function switchLines() {
     else gMeme.selectedLineIdx++
 }
 
+function deleteLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+}
+
+function changeSelectedLine({ offsetX, offsetY }) {
+    const hoveredLineIdx = gMeme.lines.findIndex(line => {
+        const { y } = line
+        return (offsetY >= y - 30 && offsetY <= 60 + y)
+    })
+    if (hoveredLineIdx === -1) return
+    else gMeme.selectedLineIdx = hoveredLineIdx
+}

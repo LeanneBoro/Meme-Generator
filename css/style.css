@@ -9,3 +9,6 @@
 @import url("components/footer.css");
 @import url("components/searchbar.css");
 @import url("components/about.css");
+
+
+@import url("setup/mq.css");

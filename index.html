@@ -37,7 +37,7 @@
 
   <section class="editor grid flow-column hidden">
     <div class="canvas-container">
-      <canvas id="canvas" width="550px" height="550px" onmousemove="onMouseMove(event)"></canvas>
+      <canvas id="canvas" width="550px" height="550px" onclick="onMouseClick(event)"></canvas>
     </div>
     <div class="icon-container grid">
       <!-- <a href="#" onclick="downloadImg(this)" download="file-name">Download</a> -->
@@ -56,6 +56,18 @@
       <div class="icon grid" ><img src="ICONS/center-text-alignment.png"></div>
       <div class="icon grid" ><img src="ICONS/align-to-right.png"></div>
     </div>
+    <div class="third-row grid flow-column">
+      <select class="font-list">
+        <option value="">Select font</option>
+        <option>Impact</option>
+        <option>Calibri</option>
+        <option>Ariel</option>
+    </select>
+    <div class="icon grid" ><img src="ICONS/text stroke.png"></div>
+    <div class="icon grid" ><img src="ICONS/paint-board-and-brush.png"></div> 
+    </div>
+    <div class="fourth-row">
+      <button>Share</button>
     </div>
   </section>
 

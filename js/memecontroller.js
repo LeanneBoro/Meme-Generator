@@ -3,12 +3,13 @@
 let gElCanvas
 let gCtx
 let gRectangles
+const gRectLength = 60
 
 
-function onInit() { 
+function onInit() {
     renderImages()
     gElCanvas = document.querySelector('canvas')
-    gCtx = gElCanvas.getContext('2d') 
+    gCtx = gElCanvas.getContext('2d')
 }
 
 function renderMeme() {
@@ -18,18 +19,18 @@ function renderMeme() {
     var img = new Image()
     img.src = `img/${meme.selectedImgId}.jpg`
     img.onload = () => {
-        gCtx.drawImage(img, 0, 0,gElCanvas.width, gElCanvas.height)
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         drawText(meme.lines)
-        // addRect(line)
+        addRect(line)
     }
 }
 
 
 function drawLine(line, x, y) {
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = line.color
+    gCtx.strokeStyle = 'black'
     gCtx.fillStyle = line.color
-    gCtx.font = line.size + 'px Arial'
+    gCtx.font = line.size + 'px Impact'
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
     gCtx.fillText(line.txt, x, y)
@@ -84,26 +85,22 @@ function onSwitchLine() {
     switchLines()
     renderMeme()
 }
-function addRect({y}) {
+function addRect({ y }) {
     gCtx.beginPath()
-    gCtx.rect(0, y - 30, 450, 60)
-    // gCtx.setLineDash([2])
+    gCtx.rect(5, y - 30, gElCanvas.width - 10, gRectLength)
     gCtx.stroke()
 }
 
-function onMouseMove(ev) {
-	const { offsetX, offsetY, clientX, clientY } = ev
-
-    console.log(ev)
-
-    // const hoveredLine = gMeme.lines.find(line => {
-    //     const { x, y, rate } = line
-    //     return offsetX >= x && offsetX <= x + BAR_WIDTH &&
-    //             offsetY >= y && offsetY <= y + rate
-    // })
-
+function onMouseClick(ev) {
+    changeSelectedLine(ev)
+    renderMeme()
 }
 
-function onDeleteLine(){
-    console.log('welp')
+function onDeleteLine() {
+    deleteLine()
+    renderMeme()
+}
+
+function getCanvasWidth() {
+    return gElCanvas.width
 }
