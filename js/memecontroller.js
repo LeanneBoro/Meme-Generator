@@ -4,12 +4,15 @@ let gElCanvas
 let gCtx
 let gRectangles
 const gRectLength = 60
+const TOUCH_EVENTS = ['touchstart', 'touchmove', 'touchend']
+var gStartPos
 
 
 function onInit() {
     renderImages()
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
+    addListeners()
 }
 
 function renderMeme() {
@@ -78,7 +81,7 @@ function onIncreaseFont() {
     renderMeme()
 }
 function onAddLine() {
-    let newLine = addLine()
+    addLine()
     renderMeme()
 }
 function onSwitchLine() {
@@ -93,6 +96,7 @@ function addRect({ y }) {
 
 function onMouseClick(ev) {
     changeSelectedLine(ev)
+    console.log(getMeme())
     renderMeme()
 }
 
@@ -103,4 +107,74 @@ function onDeleteLine() {
 
 function getCanvasWidth() {
     return gElCanvas.width
+}
+
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+}
+
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousedown', onDown)
+    gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchend', onUp)
+}
+
+function onDown(ev) {
+
+    gStartPos = getEvPos(ev) 
+    if (!isLineClicked(gStartPos)) return
+    document.body.style.cursor = 'grabbing'
+}
+
+function getEvPos(ev) {
+	let pos = {
+		x: ev.offsetX,
+		y: ev.offsetY,
+	}
+
+	if (TOUCH_EVENTS.includes(ev.type)) {
+		
+		ev.preventDefault()         
+		ev = ev.changedTouches[0]   
+		pos = {
+			x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+			y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+		}
+	}
+	return pos
+}
+
+function onMove(eve) {
+    let lineIdx = isLineClicked(eve.offsetY)
+
+    const pos = getEvPos(eve)
+    // // Calc the delta, the diff we moved
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveLine(dx, dy,lineIdx)
+
+    // // Save the last pos, we remember where we`ve been and move accordingly
+    gStartPos = pos
+
+    // // The canvas is rendered again after every move
+    renderMeme()
+}
+
+function onUp() {
+    setLineDrag(false)
+    document.body.style.cursor = 'grab'
+}
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
 }
