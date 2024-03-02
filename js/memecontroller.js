@@ -29,20 +29,20 @@ function renderMeme() {
 }
 
 
-function drawLine(line, x, y) {
+function drawLine(line) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = line.color
-    gCtx.font = line.size + 'px Impact'
-    gCtx.textAlign = 'center'
+    gCtx.font = line.size + `px ${line.font}`
+    gCtx.textAlign = line.dir
     gCtx.textBaseline = 'middle'
-    gCtx.fillText(line.txt, x, y)
-    gCtx.strokeText(line.txt, x, y)
+    gCtx.fillText(line.txt, line.x, line.y)
+    gCtx.strokeText(line.txt, line.x, line.y)
 }
 
 function drawText(lines) {
     lines.map(line => {
-        drawLine(line, line.x, line.y)
+        drawLine(line)
     })
 }
 function onEnterText({ value }) {
@@ -62,13 +62,23 @@ function showEditor() {
     elGallery.classList.add('hidden')
 
 }
+
+function showGallery() {
+    console.log('hii')
+    let elEditor = document.querySelector('.editor')
+    let elGallery = document.querySelector('.gallery')
+
+    elEditor.classList.add('hidden')
+    elGallery.classList.remove('hidden')
+}
 function downloadImg(elLink) {
     elLink.download = 'my-img'
     const dataUrl = gElCanvas.toDataURL()
     elLink.href = dataUrl
 }
 
-function onSetColor({ value }) {
+function onSetTextColor({ value }) {
+    console.log(value)
     setColor(value)
     renderMeme()
 }
@@ -96,7 +106,6 @@ function addRect({ y }) {
 
 function onMouseClick(ev) {
     changeSelectedLine(ev)
-    console.log(getMeme())
     renderMeme()
 }
 
@@ -126,50 +135,47 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchend', onUp)
 }
 
-function onDown(ev) {
 
-    gStartPos = getEvPos(ev) 
+function getEvPos(ev) {
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+
+    if (TOUCH_EVENTS.includes(ev.type)) {
+
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    return pos
+}
+
+function onDown(ev) {
+    gStartPos = getEvPos(ev)
     if (!isLineClicked(gStartPos)) return
+    setLineDragTrue()
     document.body.style.cursor = 'grabbing'
 }
 
-function getEvPos(ev) {
-	let pos = {
-		x: ev.offsetX,
-		y: ev.offsetY,
-	}
-
-	if (TOUCH_EVENTS.includes(ev.type)) {
-		
-		ev.preventDefault()         
-		ev = ev.changedTouches[0]   
-		pos = {
-			x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-			y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
-		}
-	}
-	return pos
-}
-
 function onMove(eve) {
-    let lineIdx = isLineClicked(eve.offsetY)
-
+    const line = getSelectedLine()
+    if (!line.isDrag) return
     const pos = getEvPos(eve)
-    // // Calc the delta, the diff we moved
+
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
-    moveLine(dx, dy,lineIdx)
-
-    // // Save the last pos, we remember where we`ve been and move accordingly
+    moveLine(dx, dy)
     gStartPos = pos
-
-    // // The canvas is rendered again after every move
     renderMeme()
 }
 
 function onUp() {
-    setLineDrag(false)
-    document.body.style.cursor = 'grab'
+    setLineDragFalse()
+    document.body.style.cursor = 'default'
 }
 
 function resizeCanvas() {
@@ -177,4 +183,14 @@ function resizeCanvas() {
 
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
+}
+
+function onChangeTextDir(dir) {
+    changeTextDir(dir)
+    renderMeme()
+}
+
+function onChangeFont(elInput) {
+    changeFont(elInput.value)
+    renderMeme()
 }

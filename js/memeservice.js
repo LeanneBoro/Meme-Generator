@@ -5,7 +5,7 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines:
-        [{ txt: 'your text here', size: 45, color: 'white', x: 275, y: 40, isDrag : false}]
+        [{ txt: 'your text here', size: 45, color: 'white', x: 275, y: 40, isDrag: false, dir: 'center', font: 'Impact' }]
 }
 
 function getMeme() {
@@ -29,10 +29,10 @@ function increaseFont() {
 function addLine() {
     let canvasWidth = getCanvasWidth()
     if (gMeme.lines.length === 1) {
-        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth - 40, isDrag : false }
+        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth - 40, isDrag: false, dir: 'center', font: 'Impact' }
     }
     else {
-        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth / 2, isDrag : false }
+        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth / 2, isDrag: false, dir: 'center', font: 'Impact' }
     }
     gMeme.lines.push(newLine)
 }
@@ -46,7 +46,7 @@ function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
 }
 
-function changeSelectedLine({ offsetX, offsetY }) {
+function changeSelectedLine({ offsetY }) {
     const hoveredLineIdx = gMeme.lines.findIndex(line => {
         const { y } = line
         return (offsetY >= y - 30 && offsetY <= 60 + y)
@@ -55,24 +55,38 @@ function changeSelectedLine({ offsetX, offsetY }) {
     else gMeme.selectedLineIdx = hoveredLineIdx
 }
 
-function isLineClicked(offsetY) {
+function isLineClicked({y}) {
     const hoveredLineIdx = gMeme.lines.findIndex(line => {
         const { y } = line
-        return (offsetY >= y - 30 && offsetY <= 60 + y)
+        return (y >= y - 30 && y <= 60 + y)
     })
     if (hoveredLineIdx === -1) return false
-    else {
-        return hoveredLineIdx
+        return true
     }
+
+
+function moveLine(dx, dy) {
+    gMeme.lines[gMeme.selectedLineIdx].x += dx
+    gMeme.lines[gMeme.selectedLineIdx].y += dy
 }
 
 
-function moveLine(dx, dy,lineIdx) {
-    gMeme.lines[lineIdx].x += dx
-    gMeme.lines[lineIdx].y += dy
+function setLineDragTrue() {
+    gMeme.lines[gMeme.selectedLineIdx].isDrag = true
 }
 
+function setLineDragFalse() {
+    gMeme.lines[gMeme.selectedLineIdx].isDrag = false
+}
 
-function setCircleDrag(isDrag) {
-	gMeme.lines[lineIdx].isDrag = isDrag
+function getSelectedLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function changeTextDir(dir) {
+    gMeme.lines[gMeme.selectedLineIdx].dir = dir
+}
+
+function changeFont(font) {
+    gMeme.lines[gMeme.selectedLineIdx].font = font  
 }

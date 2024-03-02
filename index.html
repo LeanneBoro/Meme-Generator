@@ -13,8 +13,8 @@
     <div class="logo">Memegen</div>
     <nav class="main-nav">
       <ul class="main-nav-list flex clean-list">
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">About</a></li>
+        <li><a onclick="showGallery()" href="#">Gallery</a></li>
+        <li><a href="#">Im flexible</a></li>
       </ul>
     </nav>
   </header>
@@ -49,33 +49,43 @@
         <div class="icon grid" onclick="onDeleteLine()"><img src="ICONS/trash.png"></div>
       </div>
 
-<div class="second-row grid flow-column">
-      <div class="icon grid" onclick="onIncreaseFont()"><img src="ICONS/increase font - icon.png"></div>
-      <div class="icon grid" onclick="onDecreaseFont()"><img src="ICONS/decrease font - icon.png"></div>
-      <div class="icon grid" ><img src="ICONS/align-to-left.png"></div>
-      <div class="icon grid" ><img src="ICONS/center-text-alignment.png"></div>
-      <div class="icon grid" ><img src="ICONS/align-to-right.png"></div>
-    </div>
-    <div class="third-row grid flow-column">
-      <select class="font-list">
-        <option value="">Select font</option>
-        <option>Impact</option>
-        <option>Calibri</option>
-        <option>Ariel</option>
-    </select>
-    <div class="icon grid" ><img src="ICONS/text stroke.png"></div>
-    <div class="icon grid" ><img src="ICONS/paint-board-and-brush.png"></div> 
-    </div>
-    <div class="fourth-row">
-      <button>Share</button>
-    </div>
+      <div class="second-row grid flow-column">
+        <div class="icon grid" onclick="onIncreaseFont()"><img src="ICONS/increase font - icon.png"></div>
+        <div class="icon grid" onclick="onDecreaseFont()"><img src="ICONS/decrease font - icon.png"></div>
+        <div class="icon grid" onclick="onChangeTextDir('left')"><img src="ICONS/align-to-left.png"></div>
+        <div class="icon grid" onclick="onChangeTextDir('center')"><img src="ICONS/center-text-alignment.png"></div>
+        <div class="icon grid" onclick="onChangeTextDir('right')"><img src="ICONS/align-to-right.png"></div>
+      </div>
+      <div class="third-row grid flow-column">
+        <select class="font-list" oninput="onChangeFont(this)">
+          <option value="">Select font</option>
+          <option>Impact</option>
+          <option>Calibri</option>
+          <option>Ariel</option>
+        </select>
+        <label for="create-color">
+          <img class="icon grid" src="ICONS/text stroke.png">
+          <input type="color" id="create-color" style="display: none">
+        </label>
+        <label oninput="onSetTextColor(this)" for="create-color">
+          <img class="icon grid" src="ICONS/paint-board-and-brush.png">
+          <input type="color" id="create-color" style="display: none">
+        </label>
+      </div>
+      <div class="fourth-row">
+        <button>Share</button>
+      </div>
   </section>
-
 
   <footer class="main-footer main-layout">
     <div class="logo">Memegen</div>
     <h2>all rights reserved 2019</h2>
   </footer>
+
+  <dialog class="share">
+    <button>Share</button>
+    <button>Download</button>
+  </dialog>
 
   <script src="js/memeservice.js"></script>
   <script src="js/gallerycontroller.js"></script>
