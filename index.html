@@ -21,7 +21,7 @@
 
   <section class="gallery">
     <nav class="search-bar flex align-center full">
-      <input type="text" id="filter" name="filter" placeholder="Enter search keyword">
+      <input oninput="onSetFilterBy(this)" type="text" id="filter" name="filter" placeholder="Enter search keyword">
     </nav>
     <div class="img-container"></div>
     <div class="about">
@@ -47,6 +47,8 @@
             src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png"></div>
         <div class="icon grid" onclick="onAddLine()"><img src="ICONS/add.png"></div>
         <div class="icon grid" onclick="onDeleteLine()"><img src="ICONS/trash.png"></div>
+        <div class="icon grid"></div>
+        <div class="icon grid"></div>
       </div>
 
       <div class="second-row grid flow-column">
@@ -71,6 +73,7 @@
           <img class="icon grid" src="ICONS/paint-board-and-brush.png">
           <input type="color" id="create-color" style="display: none">
         </label>
+        <div class="icon grid"></div>
       </div>
       <div class="fourth-row">
         <button onclick="showModal()">Share</button>

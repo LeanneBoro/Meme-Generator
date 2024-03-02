@@ -25,3 +25,16 @@ function renderImages() {
 function getRandomImg() {
     return getRandomInt(1, gImgs.length)
 }
+
+function setFilterBy() {
+    
+}
+
+// function getImages() {
+//  if (!gFilterBy) return gImgs
+
+// var imgs = gImgs.filter((img) =>
+//     img.title.toLowerCase().includes(gFilterBy.toLowerCase())
+// )
+// return books   
+// }

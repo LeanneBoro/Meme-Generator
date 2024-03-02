@@ -44,10 +44,10 @@ function doUploadImg(imgDataUrl, onSuccess) {
 
 function makeRandomSentence() {
     let randWords = ['when', 'you', 'go', 'see', 'one', 'does', 'dont', 'get', 'he', 'whats', 'is', 'right', 'good', 'yes', 'please', 'tell'
-        , 'why', 'friend', 'me', 'when', 'okay', 'life', 'god', 'know','hope','get','lorem','joke','help','computer','coding','javascript','html',
-    'bad','program']
+    , 'why', 'friend', 'me', 'when', 'okay', 'life', 'god', 'know','hope','get','lorem','joke','help','computer','coding','javascript','html',
+    'bad','program','teach','lesson','ipsum','understand']
     var randSentence = ''
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 4; i++) {
         randSentence += randWords[getRandomInt(0, randWords.length)] + ' '
     }
     return randSentence

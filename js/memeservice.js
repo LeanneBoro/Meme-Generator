@@ -96,6 +96,7 @@ function getRandomMeme() {
         selectedImgId: getRandomImg(),
         selectedLineIdx: 0,
         lines:
-            [{ txt: makeRandomSentence(), size: 45, color: getRandomColor(), x: 275, y: 40, isDrag: false, dir: 'center', font: 'Impact' }]
+            [{ txt: makeRandomSentence(), size: 45, color: getRandomColor(), x: 275, y: 40, isDrag: false, dir: 'center', font: 'Impact' },
+            { txt: makeRandomSentence(), size: 45, color: getRandomColor(), x: 550 / 2, y: 550 - 40, isDrag: false, dir: 'center', font: 'Impact' }]
     }
 }
