@@ -10,6 +10,7 @@ var gStartPos
 
 function onInit() {
     renderImages()
+    // renderSearchKeyWords()
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     addListeners()
@@ -78,6 +79,7 @@ function downloadImg(elLink) {
 }
 
 function onSetTextColor({ value }) {
+    document.getElementById('.create-color').classList.remove('hidden')
     console.log(value)
     setColor(value)
     renderMeme()
@@ -218,4 +220,8 @@ function renderRandomMeme() {
 function onSetFilterBy({ value }) {
     setFilterBy(value)
     console.log(value)
+}
+
+function setFilterByKeyword(value,size){
+    setFilterBy(value)
 }

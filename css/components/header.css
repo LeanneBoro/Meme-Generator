@@ -1,4 +1,3 @@
-
 .main-header {
     background-color: #FF7F00;
     height: 69px;
@@ -14,9 +13,11 @@
 .main-header .main-nav-list a {
     text-decoration: none;
     color: inherit;
-  }
+}
 
-  .main-header .main-nav a { 
+
+
+.main-header .main-nav a {
     margin-right: 50px;
     min-width: 130px;
     transition: box-shadow 0.2s;
@@ -35,4 +36,3 @@
 .main-header .main-nav a:hover {
     box-shadow: inset 0px -6px 0 black;
 }
-

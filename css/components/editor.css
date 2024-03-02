@@ -4,8 +4,10 @@
     margin-right: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
-    gap: 100px;
+    grid-auto-columns: 1fr 1fr;
+    gap: 140px;
 }
+
 
 
 .icon {
@@ -21,30 +23,31 @@
     justify-self: center;
 }
 
+#canvas {
+    border: solid black 5px;
+    width: 100%;
+}
 
 #text {
     border-radius: 10%;
     font-size: 1.42857em;
-    height: 60px;
 }
 
-/* .first-row {
+.first-row {
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
-/* .first-row .icon {
-   margin-right:30px; 
-} */
-
-/* .second-row {
-    justify-content: space-evenly;
+.second-row {
+    justify-content: space-between;
     align-content: end;
 }
 
 .third-row {
-    grid-template-columns: 1fr 1fr;
     justify-content: space-between; 
     align-content: center;
 }
- */ 
+
+#font {
+    width: 180px;
+}

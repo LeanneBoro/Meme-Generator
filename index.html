@@ -8,7 +8,7 @@
   <title>Ultimate Meme Generator</title>
 </head>
 
-<body onload="onInit()">
+<body class="main-layout" onload="onInit()">
   <header class=" main-header flex align-center space-between full">
     <div class="logo">Memegen</div>
     <nav class="main-nav">
@@ -18,19 +18,14 @@
       </ul>
     </nav>
   </header>
-
-  <section class="gallery">
-    <nav class="search-bar flex align-center full">
+ <nav class="search-bar flex align-center full">
       <input oninput="onSetFilterBy(this)" type="text" id="filter" name="filter" placeholder="Enter search keyword">
-    </nav>
-    <div class="img-container"></div>
-    <div class="about">
-      <div>
-        <h2>Leanne Borowitz</h1>
-          <p>Leanne is apparently a very bored person if she has time to write this instead of doing actual work. lol
-          </p>
+      <div class="keywords">
       </div>
-      <img src="img/me again.png">
+    </nav>
+  <section class="gallery">
+   
+    <div class="img-container"></div>
     </div>
   </section>
 
@@ -42,13 +37,14 @@
     <div class="icon-container grid">
       <!-- <a href="#" onclick="downloadImg(this)" download="file-name">Download</a> -->
       <input oninput="onEnterText(this)" type="text" id="text" name="text" placeholder="enter text here">
-      <div class=" first-row grid flow-column">
+      <div class=" first-row grid flow-column"> 
+        <div class="icon grid blocked"></div>
         <div class="icon grid" onclick="onSwitchLine()"><img
             src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png"></div>
         <div class="icon grid" onclick="onAddLine()"><img src="ICONS/add.png"></div>
         <div class="icon grid" onclick="onDeleteLine()"><img src="ICONS/trash.png"></div>
-        <div class="icon grid"></div>
-        <div class="icon grid"></div>
+        <div class="icon grid blocked"></div>
+       
       </div>
 
       <div class="second-row grid flow-column">
@@ -59,7 +55,7 @@
         <div class="icon grid" onclick="onChangeTextDir('right')"><img src="ICONS/align-to-right.png"></div>
       </div>
       <div class="third-row grid flow-column">
-        <select class="font-list" oninput="onChangeFont(this)">
+        <select class="font-list" id="font" oninput="onChangeFont(this)">
           <option value="">Select font</option>
           <option>Impact</option>
           <option>Calibri</option>
@@ -67,22 +63,19 @@
         </select>
         <label for="create-color">
           <img class="icon grid" src="ICONS/text stroke.png">
-          <input type="color" id="create-color" style="display: none">
+          <input type="color" id="create-color">
         </label>
-        <label oninput="onSetTextColor(this)" for="create-color">
+     <label  for="create-color">
           <img class="icon grid" src="ICONS/paint-board-and-brush.png">
-          <input type="color" id="create-color" style="display: none">
-        </label>
-        <div class="icon grid"></div>
-      </div>
+          <input oninput="onSetTextColor(this)" type="color" id="create-color">
+      </label>
       <div class="fourth-row">
-        <button onclick="showModal()">Share</button>
+        <button class="icon grid" onclick="showModal()">Share</button>
       </div>
   </section>
-
-  <footer class="main-footer main-layout">
-    <div class="logo">Memegen</div>
-    <h2>all rights reserved 2019</h2>
+  <footer class="main-footer main-layout full">
+ <div class="logo">Memegen</div>
+    <h2 class="rights">all rights reserved 2019</h2>  
   </footer>
 
   <dialog class="share">

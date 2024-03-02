@@ -2,9 +2,7 @@
     background-color: white;
     justify-content: center;
     align-content: center;
-    height:560px;
-    display: grid;
-    grid-auto-flow: column;
+    height: 570px;
 }
 
 .about h2 {
@@ -18,7 +16,7 @@
 }
 
 .about img {
-    width: 350px;
+    width: 320px;
     border-radius: 50%;
     grid-column: 1;
 }
