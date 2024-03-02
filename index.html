@@ -14,7 +14,7 @@
     <nav class="main-nav">
       <ul class="main-nav-list flex clean-list">
         <li><a onclick="showGallery()" href="#">Gallery</a></li>
-        <li><a href="#">Im flexible</a></li>
+        <li><a onclick="renderRandomMeme()" href="#">Im flexible</a></li>
       </ul>
     </nav>
   </header>
@@ -73,7 +73,7 @@
         </label>
       </div>
       <div class="fourth-row">
-        <button>Share</button>
+        <button onclick="showModal()">Share</button>
       </div>
   </section>
 
@@ -83,10 +83,10 @@
   </footer>
 
   <dialog class="share">
-    <button>Share</button>
-    <button>Download</button>
+    <a href="#" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
+    <button onclick="onUploadImg()">Share</button>
   </dialog>
-
+  <script src="js/util.js"></script>
   <script src="js/memeservice.js"></script>
   <script src="js/gallerycontroller.js"></script>
   <script src="js/memecontroller.js"></script>

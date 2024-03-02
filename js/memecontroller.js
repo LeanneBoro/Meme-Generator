@@ -64,7 +64,6 @@ function showEditor() {
 }
 
 function showGallery() {
-    console.log('hii')
     let elEditor = document.querySelector('.editor')
     let elGallery = document.querySelector('.gallery')
 
@@ -72,6 +71,7 @@ function showGallery() {
     elGallery.classList.remove('hidden')
 }
 function downloadImg(elLink) {
+    console.log('im tryinf!!!')
     elLink.download = 'my-img'
     const dataUrl = gElCanvas.toDataURL()
     elLink.href = dataUrl
@@ -193,4 +193,24 @@ function onChangeTextDir(dir) {
 function onChangeFont(elInput) {
     changeFont(elInput.value)
     renderMeme()
+}
+
+function showModal() {
+    let elModal = document.querySelector('.share')
+    elModal.showModal()
+}
+
+function renderRandomMeme() {
+
+    let meme = getRandomMeme()
+    let line = meme.lines[meme.selectedLineIdx]
+
+    var img = new Image()
+    img.src = `img/${meme.selectedImgId}.jpg`
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+        drawText(meme.lines)
+        addRect(line)
+    }
+    showEditor()
 }

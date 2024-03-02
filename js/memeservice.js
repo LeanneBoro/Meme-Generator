@@ -55,14 +55,14 @@ function changeSelectedLine({ offsetY }) {
     else gMeme.selectedLineIdx = hoveredLineIdx
 }
 
-function isLineClicked({y}) {
+function isLineClicked({ y }) {
     const hoveredLineIdx = gMeme.lines.findIndex(line => {
         const { y } = line
         return (y >= y - 30 && y <= 60 + y)
     })
     if (hoveredLineIdx === -1) return false
-        return true
-    }
+    return true
+}
 
 
 function moveLine(dx, dy) {
@@ -88,5 +88,14 @@ function changeTextDir(dir) {
 }
 
 function changeFont(font) {
-    gMeme.lines[gMeme.selectedLineIdx].font = font  
+    gMeme.lines[gMeme.selectedLineIdx].font = font
+}
+
+function getRandomMeme() {
+    return {
+        selectedImgId: getRandomImg(),
+        selectedLineIdx: 0,
+        lines:
+            [{ txt: makeRandomSentence(), size: 45, color: getRandomColor(), x: 275, y: 40, isDrag: false, dir: 'center', font: 'Impact' }]
+    }
 }
