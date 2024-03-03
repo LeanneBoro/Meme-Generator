@@ -14,17 +14,17 @@ var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
 ]
 
 var gSearchKeywords = [{ word: 'funny', number: '5' },
-{ word: 'cat', number: '5' },
-{ word: 'dog', number: '2' },
-{ word: 'baby', number: '7' },
-{ word: 'man', number: '3' },
-{ word: 'smile', number: '2' },
-{ word: 'cute', number: '10' },]
+{ word: 'cat', number: 15 },
+{ word: 'dog', number: 2 },
+{ word: 'baby', number: 7 },
+{ word: 'man', number: 3 },
+{ word: 'smile', number: 2 },
+{ word: 'cute', number: 10 },]
 
 function renderSearchKeyWords() {
     const strHTMLs = gSearchKeywords.map(keyword => {
         return `
-        <h1 onclick="setFilterByKeyword('${keyword.word}')">'${keyword.word}'</h1>`
+        <h1 style="font-size:${keyword.number} px;">${keyword.word}</h1>`
     })
     let elKeywords = document.querySelector('.keywords')
     elKeywords.innerHTML = strHTMLs.join('')

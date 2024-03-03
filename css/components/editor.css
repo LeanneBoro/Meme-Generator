@@ -22,12 +22,6 @@
     align-self: center;
     justify-self: center;
 }
-
-#canvas {
-    border: solid black 5px;
-    width: 100%;
-}
-
 #text {
     border-radius: 10%;
     font-size: 1.42857em;

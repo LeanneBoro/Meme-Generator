@@ -10,7 +10,7 @@ var gStartPos
 
 function onInit() {
     renderImages()
-    // renderSearchKeyWords()
+    renderSearchKeyWords()
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     addListeners()
