@@ -10,6 +10,7 @@ var gRandomMode = false
 
 
 function onInit() {
+    initMeme()
     renderImages()
     // renderSearchKeyWords()
     renderFilterOptions()

@@ -8,6 +8,16 @@ var gMeme = {
         [{ txt: 'your text here', size: 45, color: 'white', x: 275, y: 40, isDrag: false, font: 'Impact', width: 270.81298, stroke: 'black' }]
 }
 
+function initMeme() {
+    gMeme = {
+        selectedImgId: 1,
+        selectedLineIdx: 0,
+        lines:
+            [{ txt: 'your text here', size: 45, color: 'white', x: 275, y: 40, isDrag: false, font: 'Impact', width: 270.81298, stroke: 'black' }]
+    }
+}
+
+
 function getMeme() {
     return gMeme
 }
