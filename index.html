@@ -18,18 +18,18 @@
       </ul>
     </nav>
   </header>
-  
- <nav class="search-bar flex align-center full">
-      <input oninput="onSetFilterBy(this)" type="text" id="filter" class="filter" name="filter" placeholder="Enter search keyword"
-      list="options">
-      <datalist id="options" class="options">
-      </datalist>
-      <button onclick="onClearFilter()">clear</button>
-      <ul class="keywords clean-list">
-      </ul>
-    </nav>
+
+  <nav class="search-bar flex align-center full">
+    <input oninput="onSetFilterBy(this)" type="text" id="filter" class="filter" name="filter"
+      placeholder="Enter search keyword" list="options">
+    <datalist id="options" class="options">
+    </datalist>
+    <button onclick="onClearFilter()">clear</button>
+    <ul class="keywords clean-list">
+    </ul>
+  </nav>
   <section class="gallery">
-   
+
     <div class="img-container"></div>
     </div>
   </section>
@@ -41,12 +41,12 @@
     </div>
     <div class="icon-container flex align-center">
       <input oninput="onEnterText(this)" type="text" id="text" name="text" placeholder="enter text here">
-      <div class=" first-row grid flow-column"> 
-            <div class="icon grid" onclick="onSwitchLine()"><img
+      <div class=" first-row grid flow-column">
+        <div class="icon grid" onclick="onSwitchLine()"><img
             src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png"></div>
         <div class="icon grid" onclick="onAddLine()"><img src="ICONS/add.png"></div>
         <div class="icon grid" onclick="onDeleteLine()"><img src="ICONS/trash.png"></div>
-       
+
       </div>
 
       <div class="second-row grid flow-column">
@@ -63,26 +63,21 @@
           <option>Calibri</option>
           <option>Ariel</option>
         </select>
-        <label for="create-color">
-          <img class="icon grid" src="ICONS/text stroke.png">
-          <input type="color" id="create-color">
-        </label>
-     <label  for="create-color">
-          <img class="icon grid" src="ICONS/paint-board-and-brush.png">
-          <input onchange="onSetTextColor(this)" type="color" id="create-color">
-      </label>
-</div>
-        <button onclick="showModal()">Share</button>
+        <label for="color"><img class="icon grid" src="ICONS/text stroke.png"></label>
+          <input class="blocked" type="color" id="color" oninput="onSetTextStroke(this)">
+        <label for="stroke">
+          <img class="icon grid" src="ICONS/paint-board-and-brush.png"></label>
+          <input class="blocked" oninput="onSetTextColor(this)" type="color" id="stroke">
+     
+      </div>
+        <button onclick="onUploadImg()">Share</button>
 
   </section>
   <footer class="main-footer full flex">
- <div class="logo">Memegen</div>
-    <h2 class="rights">@all rights reserved 2019 Leanne Borowitz</h2>  
+    <div class="logo">Memegen</div>
+    <h2 class="rights">@all rights reserved 2019 Leanne Borowitz</h2>
   </footer>
 
-  <dialog class="share">
-    <a href="#" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
-    <button onclick="onUploadImg()">Share</button>
   </dialog>
   <script src="js/util.js"></script>
   <script src="js/memeservice.js"></script>

@@ -1,25 +1,17 @@
 'use strict'
 
-var gRandomMode = false
 
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines:
-        [{ txt: 'your text here', size: 45, color: 'white', x: 275, y: 40, isDrag: false, font: 'Impact', width: 270.81298 }]
+        [{ txt: 'your text here', size: 45, color: 'white', x: 275, y: 40, isDrag: false, font: 'Impact', width: 270.81298, stroke: 'black' }]
 }
 
 function getMeme() {
-    if (gRandomMode) {
-        return getRandomMeme()
-    }
     return gMeme
 }
 
-function setRandomMode(isRandom) {
-    gRandomMode = isRandom
-    console.log(gRandomMode)
-}
 function setLineTxt(str) {
     gMeme.lines[gMeme.selectedLineIdx].txt = str
 }
@@ -28,6 +20,9 @@ function setImg(id) {
 }
 function setColor(newColor) {
     gMeme.lines[gMeme.selectedLineIdx].color = newColor
+}
+function setStroke(value) {
+    gMeme.lines[gMeme.selectedLineIdx].stroke = value
 }
 function decreaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size--
@@ -38,10 +33,10 @@ function increaseFont() {
 function addLine() {
     let canvasWidth = getCanvasWidth()
     if (gMeme.lines.length === 1) {
-        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth - 40, isDrag: false, font: 'Impact', width: 270.81298 }
+        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth - 40, isDrag: false, font: 'Impact', width: 270.81298, stroke: 'black' }
     }
     else {
-        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth / 2, isDrag: false, font: 'Impact', width: 270.81298 }
+        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth / 2, isDrag: false, font: 'Impact', width: 270.81298, stroke: 'black' }
     }
     gMeme.lines.push(newLine)
 }
@@ -95,15 +90,15 @@ function getSelectedLine() {
 function changeTextDir(dir) {
     if (dir === 'left') gMeme.lines[gMeme.selectedLineIdx].x = 200
     else if (dir === 'right') gMeme.lines[gMeme.selectedLineIdx].x = 400
-    else gMeme.lines[gMeme.selectedLineIdx].x = 275 
+    else gMeme.lines[gMeme.selectedLineIdx].x = 275
 }
 
 function changeFont(font) {
     gMeme.lines[gMeme.selectedLineIdx].font = font
 }
 
-function getRandomMeme() {
-    return {
+function makeRandomMeme() {
+    gMeme = {
         selectedImgId: getRandomImg(),
         selectedLineIdx: 0,
         lines:

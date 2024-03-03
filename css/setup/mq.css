@@ -4,6 +4,12 @@
         min-height: 50px;
     }
     
+    .editor {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+
     .img-container {
         grid-template-columns: repeat(2,1fr);
     }

@@ -35,7 +35,7 @@
 }
 
 .blocked {
-    opacity: 0;
+    display: none;
 }
 
 .clean-list {

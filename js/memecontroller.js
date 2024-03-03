@@ -35,7 +35,7 @@ function renderMeme() {
 
 function drawLine(line) {
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'black'
+    gCtx.strokeStyle = line.stroke
     gCtx.fillStyle = line.color
     gCtx.font = line.size + `px ${line.font}`
     gCtx.textAlign = 'center'
@@ -77,16 +77,18 @@ function showGallery() {
     document.querySelector('.search-bar').classList.remove('hidden')
 }
 function downloadImg(elLink) {
-    console.log('im tryinf!!!')
     elLink.download = 'my-img'
     const dataUrl = gElCanvas.toDataURL()
     elLink.href = dataUrl
 }
 
 function onSetTextColor({ value }) {
-    document.getElementById('.create-color').classList.remove('hidden')
-    console.log(value)
     setColor(value)
+    renderMeme()
+}
+
+function onSetTextStroke({ value }) {
+    setStroke(value)
     renderMeme()
 }
 function onDecreaseFont() {
@@ -111,10 +113,10 @@ function onSwitchLine() {
     switchLines()
     renderMeme()
 }
-function addRect({ x , y , width, size}) {
+function addRect({ x, y, width, size }) {
     gCtx.beginPath()
-    gCtx.setLineDash([4,10])
-    gCtx.rect(x - 15 - (width/2), y - size, width + 20, size+size)
+    gCtx.setLineDash([4, 10])
+    gCtx.rect(x - 15 - (width / 2), y - size, width + 20, size + size)
     gCtx.stroke()
     gCtx.setLineDash([])
 }
@@ -217,14 +219,17 @@ function showModal() {
 
 function renderRandomMeme() {
 
-  
+makeRandomMeme()
+renderMeme()
+showEditor()
+
 }
 
 function onSetFilterBy({ value }) {
     setFilterBy(value.toLowerCase())
 }
 
-function setFilterByKeyword(value,size){
+function setFilterByKeyword(value, size) {
     setFilterBy(value)
 }
 

@@ -14,13 +14,13 @@ var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
 ]
 
 var gSearchKeywords = [
-    { funny: 5 },
-    { cat: 15 },
-    { dog: 2 },
-    { baby: 7 },
-    { man: 3 },
-    { smile: 2 },
-    { cute: 10 },]
+    { word : 'funny' , number : 5 },
+    { word : 'cat' , number : 15 },
+    { word : 'dog' , number : 2 },
+    { word: 'baby', number : 7 },
+    { word : 'man', number : 3 },
+    { word: 'smile', number : 2 },
+    { word : 'cute' , number: 10 },]
 
 function renderSearchKeyWords() {
     let strHTMLs
