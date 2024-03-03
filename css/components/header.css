@@ -21,6 +21,7 @@
     margin-right: 50px;
     min-width: 130px;
     transition: box-shadow 0.2s;
+    font-size: 1.5em;
 }
 
 /* .main-header .main-nav li:first-child {
@@ -29,7 +30,7 @@
 
 .logo {
     margin-left: 50px;
-    font-size: 1.571428em;
+    font-size: 3em;
     font-weight: bold;
 }
 

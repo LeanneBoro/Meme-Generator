@@ -1,7 +1,15 @@
 @media (max-width: 860px) {
     .main-header {
         padding: 20px 0;
-        min-height: 70px;
+        min-height: 50px;
+    }
+    
+    .img-container {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .editor {
+        grid-auto-flow: row;
     }
 
     .main-header .main-nav {

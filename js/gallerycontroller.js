@@ -26,10 +26,12 @@ function renderSearchKeyWords() {
     let strHTMLs
 
     for (const keyword in gSearchKeywords) {
-        strHTMLs += `<li style = "font-size: ${gSearchKeywords[keyword]};" onclick="onSearchByKeyWord('${keyword}')">${keyword}</li>`
+        console.log(keyword)
+        console.log(gSearchKeywords[keyword])
+        strHTMLs += `<li style = "font-size: ${keyword};" onclick="onSearchByKeyWord('${gSearchKeywords[keyword]}')">${keyword}</li>`
     }
     let elKeywords = document.querySelector('.keywords')
-    elKeywords.innerHTML = strHTMLs
+    // elKeywords.innerHTML = strHTMLs
 
 }
 

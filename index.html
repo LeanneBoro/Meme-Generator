@@ -25,7 +25,7 @@
       <datalist id="options" class="options">
       </datalist>
       <button onclick="onClearFilter()">clear</button>
-      <ul class="keyword clean-list">
+      <ul class="keywords clean-list">
       </ul>
     </nav>
   <section class="gallery">
@@ -69,15 +69,15 @@
         </label>
      <label  for="create-color">
           <img class="icon grid" src="ICONS/paint-board-and-brush.png">
-          <input oninput="onSetTextColor(this)" type="color" id="create-color">
+          <input onchange="onSetTextColor(this)" type="color" id="create-color">
       </label>
 </div>
         <button onclick="showModal()">Share</button>
 
   </section>
-  <footer class="main-footer main-layout full">
+  <footer class="main-footer full flex">
  <div class="logo">Memegen</div>
-    <h2 class="rights">all rights reserved 2019</h2>  
+    <h2 class="rights">@all rights reserved 2019 Leanne Borowitz</h2>  
   </footer>
 
   <dialog class="share">

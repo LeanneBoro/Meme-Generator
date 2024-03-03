@@ -9,13 +9,14 @@
     border: none;
     background-color: none;
     margin-left: 1em;
+    font-size: 2em;
 }
 
 #filter {
     margin-left: 50px;
     width: 260px;
     border: none;
-    font-size: 1.357142em;
+    font-size: 2em;
     border-bottom: solid 2px black;
 }
 

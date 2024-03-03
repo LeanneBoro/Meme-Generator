@@ -29,4 +29,5 @@ a:visited {
 
 button {
   cursor: pointer;
+  background-color: none;
 }

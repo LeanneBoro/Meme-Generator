@@ -5,7 +5,7 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines:
-        [{ txt: 'your text here', size: 45, color: 'white', x: 275, y: 40, isDrag: false, dir: 'center', font: 'Impact' }]
+        [{ txt: 'your text here', size: 45, color: 'white', x: 275, y: 40, isDrag: false, dir: 'center', font: 'Impact',width: 270.81298 }]
 }
 
 function getMeme() {
@@ -22,7 +22,6 @@ function setColor(newColor) {
 }
 function decreaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size--
-    if (lines[gMeme.selectedLineIdx].size < 1) lines[gMeme.selectedLineIdx].size = 1
 }
 function increaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size++
@@ -30,10 +29,10 @@ function increaseFont() {
 function addLine() {
     let canvasWidth = getCanvasWidth()
     if (gMeme.lines.length === 1) {
-        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth - 40, isDrag: false, dir: 'center', font: 'Impact' }
+        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth - 40, isDrag: false, dir: 'center', font: 'Impact',width:270.81298}
     }
     else {
-        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth / 2, isDrag: false, dir: 'center', font: 'Impact' }
+        var newLine = { txt: 'enter text', size: 45, color: 'white', x: canvasWidth / 2, y: canvasWidth / 2, isDrag: false, dir: 'center', font: 'Impact', width:270.81298}
     }
     gMeme.lines.push(newLine)
 }
@@ -56,10 +55,10 @@ function changeSelectedLine({ offsetY }) {
     else gMeme.selectedLineIdx = hoveredLineIdx
 }
 
-function isLineClicked({ y }) {
+function isLineClicked({ x,y }) {
     const hoveredLineIdx = gMeme.lines.findIndex(line => {
-        const { y } = line
-        return (y >= y - 30 && y <= 60 + y)
+        const { y, x } = line
+        return (y >= y && y <= 60 + y && x >= x )
     })
     if (hoveredLineIdx === -1) return false
     return true
@@ -97,7 +96,11 @@ function getRandomMeme() {
         selectedImgId: getRandomImg(),
         selectedLineIdx: 0,
         lines:
-            [{ txt: makeRandomSentence(), size: 35, color: 'white', x: 275, y: 40, isDrag: false, dir: 'center', font: 'Impact' },
-            { txt: makeRandomSentence(), size: 35, color: 'white', x: 550 / 2, y: 550 - 40, isDrag: false, dir: 'center', font: 'Impact' }]
+            [{ txt: makeRandomSentence(), size: 45, color: 'white', x: 275, y: 40, isDrag: false, dir: 'center', font: 'Impact' , width : 270.81298},
+            { txt: makeRandomSentence(), size: 45, color: 'white', x: 550 / 2, y: 550 - 40, isDrag: false, dir: 'center', font: 'Impact' , width : 270.81298 }]
     }
+}
+
+function updateLineWidth(width) {
+    gMeme.lines[gMeme.selectedLineIdx].width = width
 }

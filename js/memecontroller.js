@@ -10,7 +10,7 @@ var gStartPos
 
 function onInit() {
     renderImages()
-    // renderSearchKeyWords()
+    renderSearchKeyWords()
     renderFilterOptions()
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -26,6 +26,7 @@ function renderMeme() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         drawText(meme.lines)
+        // console.log(gCtx.measureText(line).width)
         addRect(line)
     }
 }
@@ -89,10 +90,16 @@ function onSetTextColor({ value }) {
 }
 function onDecreaseFont() {
     decreaseFont()
+    let line = getSelectedLine()
+    let width = gCtx.measureText(line.txt).width
+    updateLineWidth(width)
     renderMeme()
 }
 function onIncreaseFont() {
     increaseFont()
+    let line = getSelectedLine()
+    let width = gCtx.measureText(line.txt).width
+    updateLineWidth(width)
     renderMeme()
 }
 function onAddLine() {
@@ -103,10 +110,12 @@ function onSwitchLine() {
     switchLines()
     renderMeme()
 }
-function addRect({ y }) {
+function addRect({ x , y , width, size}) {
     gCtx.beginPath()
-    gCtx.rect(5, y - 30, gElCanvas.width - 10, gRectLength)
+    gCtx.setLineDash([4,10])
+    gCtx.rect(x - 15 - (width/2), y - size, width + 20, size+size)
     gCtx.stroke()
+    gCtx.setLineDash([])
 }
 
 function onMouseClick(ev) {

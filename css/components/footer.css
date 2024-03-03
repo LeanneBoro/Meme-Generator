@@ -1,24 +1,22 @@
 .main-footer {
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    align-content: center;
     background-color: var(--primary-1);
-    height: 200px;
+    padding: 50px 0;
     color: white;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
 }
 
 footer .logo {
-    font-size: 2.142857em;
+    font-size: 3em;
     font-weight: bold;
 }
 
 footer h2 {
-    font-size: 1.14285em;
+    font-size: 1.5em;
 
 }
 
 footer .rights {
     margin-top: 15px;
-    letter-spacing: 5px;
 }
