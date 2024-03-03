@@ -6,11 +6,12 @@ let gRectangles
 const gRectLength = 60
 const TOUCH_EVENTS = ['touchstart', 'touchmove', 'touchend']
 var gStartPos
+var gRandomMode = false
 
 
 function onInit() {
     renderImages()
-    renderSearchKeyWords()
+    // renderSearchKeyWords()
     renderFilterOptions()
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -37,7 +38,7 @@ function drawLine(line) {
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = line.color
     gCtx.font = line.size + `px ${line.font}`
-    gCtx.textAlign = line.dir
+    gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
     gCtx.fillText(line.txt, line.x, line.y)
     gCtx.strokeText(line.txt, line.x, line.y)
@@ -216,17 +217,7 @@ function showModal() {
 
 function renderRandomMeme() {
 
-    let meme = getRandomMeme()
-    let line = meme.lines[meme.selectedLineIdx]
-
-    var img = new Image()
-    img.src = `img/${meme.selectedImgId}.jpg`
-    img.onload = () => {
-        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(meme.lines)
-        addRect(line)
-    }
-    showEditor()
+  
 }
 
 function onSetFilterBy({ value }) {
