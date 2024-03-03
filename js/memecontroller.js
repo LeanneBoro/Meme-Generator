@@ -70,6 +70,7 @@ function showEditor() {
 }
 
 function showGallery() {
+    initMeme()
     let elEditor = document.querySelector('.editor')
     let elGallery = document.querySelector('.gallery')
 
