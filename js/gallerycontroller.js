@@ -13,22 +13,32 @@ var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
 { id: 9, url: 'img/9.jpg', keywords: ['smile', 'baby'] },
 ]
 
-var gSearchKeywords = [{ word: 'funny', number: '5' },
-{ word: 'cat', number: 15 },
-{ word: 'dog', number: 2 },
-{ word: 'baby', number: 7 },
-{ word: 'man', number: 3 },
-{ word: 'smile', number: 2 },
-{ word: 'cute', number: 10 },]
+var gSearchKeywords = [
+    { funny: 5 },
+    { cat: 15 },
+    { dog: 2 },
+    { baby: 7 },
+    { man: 3 },
+    { smile: 2 },
+    { cute: 10 },]
 
 function renderSearchKeyWords() {
-    const strHTMLs = gSearchKeywords.map(keyword => {
-        return `
-        <h1 style="font-size:${keyword.number} px;">${keyword.word}</h1>`
-    })
-    let elKeywords = document.querySelector('.keywords')
-    elKeywords.innerHTML = strHTMLs.join('')
+    let strHTMLs
 
+    for (const keyword in gSearchKeywords) {
+        strHTMLs += `<li style = "font-size: ${gSearchKeywords[keyword]};" onclick="onSearchByKeyWord('${keyword}')">${keyword}</li>`
+    }
+    let elKeywords = document.querySelector('.keywords')
+    elKeywords.innerHTML = strHTMLs
+
+}
+
+function renderFilterOptions() {
+    const strHTMLs = gSearchKeywords.map(keyword => {
+        return `<option value="${keyword.word}"></option>`
+    })
+    let elOptions = document.querySelector('.options')
+    elOptions.innerHTML = strHTMLs.join('')
 }
 
 function renderImages() {
@@ -63,4 +73,9 @@ function getImages() {
         return false
     })
     return imgs
+}
+
+function clearFilter() {
+    gFilterBy = null
+    document.querySelector('.filter').value = ''
 }

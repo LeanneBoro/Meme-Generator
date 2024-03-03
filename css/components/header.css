@@ -1,7 +1,7 @@
 .main-header {
-    background-color: #FF7F00;
+    background-color: var(--primary-1);
     height: 69px;
-    position: sticky;
+    position: relative;
     font-size: 1.357142em;
     color: white;
 }
@@ -34,5 +34,5 @@
 }
 
 .main-header .main-nav a:hover {
-    box-shadow: inset 0px -6px 0 black;
+    box-shadow: inset 0px -2px 0 white;
 }

@@ -3,7 +3,7 @@
     align-content: center;
     justify-items: center;
     align-content: center;
-    background-color: #FF7F00;
+    background-color: var(--primary-1);
     height: 200px;
     color: white;
 }

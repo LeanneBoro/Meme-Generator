@@ -10,7 +10,8 @@ var gStartPos
 
 function onInit() {
     renderImages()
-    renderSearchKeyWords()
+    // renderSearchKeyWords()
+    renderFilterOptions()
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     addListeners()
@@ -61,6 +62,7 @@ function showEditor() {
 
     elEditor.classList.remove('hidden')
     elGallery.classList.add('hidden')
+    document.querySelector('.search-bar').classList.add('hidden')
 
 }
 
@@ -70,6 +72,7 @@ function showGallery() {
 
     elEditor.classList.add('hidden')
     elGallery.classList.remove('hidden')
+    document.querySelector('.search-bar').classList.remove('hidden')
 }
 function downloadImg(elLink) {
     console.log('im tryinf!!!')
@@ -218,10 +221,14 @@ function renderRandomMeme() {
 }
 
 function onSetFilterBy({ value }) {
-    setFilterBy(value)
-    console.log(value)
+    setFilterBy(value.toLowerCase())
 }
 
 function setFilterByKeyword(value,size){
     setFilterBy(value)
+}
+
+function onClearFilter() {
+    clearFilter()
+    renderImages()
 }

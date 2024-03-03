@@ -15,13 +15,14 @@ function setLineTxt(str) {
     gMeme.lines[gMeme.selectedLineIdx].txt = str
 }
 function setImg(id) {
-    gMeme.selectedImgId = id
+    gMeme.selectedImgId = id 
 }
 function setColor(newColor) {
     gMeme.lines[gMeme.selectedLineIdx].color = newColor
 }
 function decreaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size--
+    if (lines[gMeme.selectedLineIdx].size < 1) lines[gMeme.selectedLineIdx].size = 1
 }
 function increaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size++
@@ -96,7 +97,7 @@ function getRandomMeme() {
         selectedImgId: getRandomImg(),
         selectedLineIdx: 0,
         lines:
-            [{ txt: makeRandomSentence(), size: 45, color: getRandomColor(), x: 275, y: 40, isDrag: false, dir: 'center', font: 'Impact' },
-            { txt: makeRandomSentence(), size: 45, color: getRandomColor(), x: 550 / 2, y: 550 - 40, isDrag: false, dir: 'center', font: 'Impact' }]
+            [{ txt: makeRandomSentence(), size: 35, color: 'white', x: 275, y: 40, isDrag: false, dir: 'center', font: 'Impact' },
+            { txt: makeRandomSentence(), size: 35, color: 'white', x: 550 / 2, y: 550 - 40, isDrag: false, dir: 'center', font: 'Impact' }]
     }
 }
